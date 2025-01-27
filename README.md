@@ -96,7 +96,7 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
         connect_address: <nodeN_ip>:8008
 
     etcd:
-        hosts: "<etcdnode1_ip>:2379"
+        hosts: "<etcd-node1_IP>:2380,<etcd-node2_IP>:2380,<etcd-node3_IP>:2380"
 
     bootstrap:
       dcs:
