@@ -27,7 +27,7 @@ curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearm
 sudo apt update
 sudo apt install -y postgresql-16 postgresql-server-dev-16
 sudo systemctl stop postgresql
-sudo ln -s /usr/lib/postgresql/12/bin/* /usr/sbin/
+sudo ln -s /usr/lib/postgresql/16/bin/* /usr/sbin/
 sudo apt -y install python python3-pip python3-testresources
 sudo pip3 install --upgrade setuptools psycopg2 patroni python-etcd
 ```
