@@ -204,8 +204,8 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 
     ```
     global
+        log stdout format raw local0
         maxconn 100
-        log     127.0.0.1 local2
 
     defaults
         log global
@@ -216,6 +216,7 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
         timeout server 30m
         timeout check 5s
 
+
     listen stats
         mode http
         bind *:7000
@@ -224,8 +225,8 @@ ETCD_INITIAL_CLUSTER_TOKEN="etcd-cluster"
 
     listen postgres
         bind *:5000
-        option httpchk
-        http-check expect status 200
+        option httpchk GET /health
+        http-check expect string "running"
         default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
         server node1 <node1_ip>:5432 maxconn 100 check port 8008
         server node2 <node2_ip>:5432 maxconn 100 check port 8008
